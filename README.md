@@ -38,7 +38,7 @@ change index.js such:
                 <Text>
                     Hellow word
                 </Text>
-            <View>
+            </View>
             );
            }
          }
