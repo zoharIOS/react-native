@@ -47,10 +47,12 @@ change index.js such:
      
 # Running:
 **ios**
+
 from project directory, open new terminal in folder
 
     > react-native run-ios
 **android**
+
 open android studio, open project directory, open AVD and start the emulator and then again new terminal in folder:
 
     > react-native run-android
