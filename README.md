@@ -61,9 +61,9 @@ open android studio, open project directory, open AVD and start the emulator and
 2. new terminal in project folder, `> react-devtools` . , if not working, install it: `> npm install -g react-devtools`
 
 **Basic Application with Navigation**
-```
-:+1: App.js color:red
 
+:+1: App.js color:red
+```
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
