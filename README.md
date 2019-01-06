@@ -56,6 +56,6 @@ open android studio, open project directory, open AVD and start the emulator and
     > react-native run-android
 **debug**
 1. From ios emulator: options+D , remote debug , a chrome window will be opened and then go to inspect.
-2. new terminal in project folder,      > react-devtools . , if not working, install it:     > npm install -g react-devtools
+2. new terminal in project folder, `> react-devtools` . , if not working, install it: `> npm install -g react-devtools`
 
 
