@@ -62,7 +62,7 @@ open android studio, open project directory, open AVD and start the emulator and
 
 **Basic Application with Navigation**
 
-:+1: App.js color:red
+:+1: App.js :+1:
 ```
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
