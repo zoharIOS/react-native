@@ -60,4 +60,40 @@ open android studio, open project directory, open AVD and start the emulator and
 1. From ios emulator: options+D , remote debug , a chrome window will be opened and then go to inspect.
 2. new terminal in project folder, `> react-devtools` . , if not working, install it: `> npm install -g react-devtools`
 
+**Basic Application with Navigation**
+*App.js*
+`import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import firebase from 'firebase';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import reducers from './reducers';
+import Router from './Router';
+
+class App extends Component {
+    componentWillMount() {
+        const config = {
+            apiKey: 'AIzaSyDar20iembX_H3loaJ9m-Lw2_nJ6poffFU',
+            authDomain: 'manager-2b6e5.firebaseapp.com',
+            databaseURL: 'https://manager-2b6e5.firebaseio.com',
+            projectId: 'manager-2b6e5',
+            storageBucket: 'manager-2b6e5.appspot.com',
+            messagingSenderId: '1034384984308'
+          };
+        
+          firebase.initializeApp(config);
+    }
+
+    render() {
+        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
+        return (
+            <Provider store={store}>
+                <Router />
+            </Provider>
+        );
+    }
+}
+
+export default App;`
 
