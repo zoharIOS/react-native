@@ -63,9 +63,7 @@ open android studio, open project directory, open AVD and start the emulator and
 **Basic Application with Navigation**
 ```diff
 + App.js
-```
 
-```
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
