@@ -13,3 +13,11 @@ create .eslintrc file in project directory
     {
         "extends": "rallycoding"
     }
+
+from project directory, open new terminal in folder
+
+    > react-native run-ios
+open android studio, open project directory, open AVD and start the emulator and then:
+
+    > react-native run-android
+    
