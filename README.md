@@ -14,13 +14,6 @@ create .eslintrc file in project directory
         "extends": "rallycoding"
     }
 
-from project directory, open new terminal in folder
-
-    > react-native run-ios
-open android studio, open project directory, open AVD and start the emulator and then:
-
-    > react-native run-android
-    
 # project
 delete App.js
 create src folder and inside it new file App.js
@@ -52,5 +45,17 @@ change index.js such:
      
      export default App;
      
- 
+# Running:
+**ios**
+from project directory, open new terminal in folder
+
+    > react-native run-ios
+**android**
+open android studio, open project directory, open AVD and start the emulator and then again new terminal in folder:
+
+    > react-native run-android
+**debug**
+1. From ios emulator: options+D , remote debug , a chrome window will be opened and then go to inspect.
+2. new terminal in project folder,      > react-devtools . , if not working, install it:     > npm install -g react-devtools
+
 
