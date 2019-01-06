@@ -62,7 +62,8 @@ open android studio, open project directory, open AVD and start the emulator and
 
 **Basic Application with Navigation**
 *App.js*
-`import React, { Component } from 'react';
+```
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
 import { createStore, applyMiddleware } from 'redux';
@@ -95,5 +96,6 @@ class App extends Component {
     }
 }
 
-export default App;`
+export default App;
+```
 
