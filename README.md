@@ -61,7 +61,8 @@ open android studio, open project directory, open AVD and start the emulator and
 2. new terminal in project folder, `> react-devtools` . , if not working, install it: `> npm install -g react-devtools`
 
 **Basic Application with Navigation**
-*App.js*
+App.js `#1589F0`
+
 ```
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
