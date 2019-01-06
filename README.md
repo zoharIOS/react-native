@@ -6,6 +6,7 @@
     > npm install -g eslint-config-rallycoding
   
 create .eslintrc file in project directory
+
     .eslintrc:
     {
         "extends": "rallycoding"
