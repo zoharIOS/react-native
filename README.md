@@ -64,6 +64,8 @@ open android studio, open project directory, open AVD and start the emulator and
 
 ```
 > npm install --save-dev redux react-redux redux-thunk
+
+also install axios for http requests to a server
 ```
 
 :+1: App.js :+1:
