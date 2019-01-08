@@ -94,8 +94,9 @@ export default App;
 Create Components folder in src and copy some components from previous project to reuse them.
 
 Create folders in src folder.
- **reducers** , **Routeer**, **actions** each one shell have index.js.
+ **reducers** , **actions** , **Router** each one shell have index.js.
  
+ # reducers
  ```
   reducers (index.js)
   
@@ -150,3 +151,66 @@ export default (state = INITIAL_STATE, action) => {
 };
 
  ```
+# actions
+
+```
+type.js
+
+export const EMPLOYEES_FETCH_SUCCESS = 'employees_fetch_success';
+```
+
+```
+index.js
+
+export * from './EployeeActions';
+```
+
+```
+EployeeActions.js
+
+import { Actions } from 'react-native-router-flux';
+import { 
+    EMPLOYEE_UPDATE, 
+    EMPLOYEE_CREATE, 
+    EMPLOYEES_FETCH_SUCCESS,
+    EMPLOYEES_SAVE_SUCCESS } from './types';
+
+export const employeeUpdate = ({ prop, value }) => {
+    console.log('Action: employeeUpdate: prop:%o , value:%o', prop, value);
+    return {
+        type: EMPLOYEE_UPDATE,
+        payload: { prop, value }
+    };
+};
+
+export const employeeCreate = ({ name, phone, shift }) => {
+    console.log('Action: employessCreate: name:%s, phone%s, shift:%s:',
+     name, phone, shift);
+    const { currentUser } = firebase.auth();
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/employees`)
+        .push({ name, phone, shift })
+        .catch((err) => console.log('Action: employeeCreate error: %o', err))
+        .then(() => {
+            dispatch({ type: EMPLOYEE_CREATE });
+            Actions.pop();
+        });
+        //in order to navigate to screen EployeeList, after firebase sucess
+    };
+    //in order to return back, we use redux-thunk
+    // returning a function cause redux-thunk to imidiatly retruning back
+    // so we don't need to dispatch anything
+    // and we dont need to declare a type..
+};
+
+export const employeesFetch = () => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/employees`)
+        .on('value', snapshot => {
+            dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+        });
+    };
+};
+```
