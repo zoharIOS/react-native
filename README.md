@@ -72,26 +72,12 @@ also install axios for http requests to a server
 ```
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import firebase from 'firebase';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import Router from './Router';
 
 class App extends Component {
-    componentWillMount() {
-        const config = {
-            apiKey: 'AIzaSyDar20iembX_H3loaJ9m-Lw2_nJ6poffFU',
-            authDomain: 'manager-2b6e5.firebaseapp.com',
-            databaseURL: 'https://manager-2b6e5.firebaseio.com',
-            projectId: 'manager-2b6e5',
-            storageBucket: 'manager-2b6e5.appspot.com',
-            messagingSenderId: '1034384984308'
-          };
-        
-          firebase.initializeApp(config);
-    }
-
     render() {
         const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
@@ -105,4 +91,22 @@ class App extends Component {
 
 export default App;
 ```
+Create Components folder in src and copy some components from previous project to reuse them.
 
+Create folders in src folder.
+ **reducers** , **Routeer**, **actions** each one shell have index.js.
+ 
+ reducers (index.js)
+ ```
+import { combineReducers } from 'redux';
+import AuthReducer from './AuthReducer';
+import EmployeeFormReducer from './EmployeeFormReducer';
+import EmployeesReducer from './EmployeesReducer';
+
+export default combineReducers({
+    auth: AuthReducer,
+    employeeForm: EmployeeFormReducer,
+    employees: EmployeesReducer
+});
+
+ ```
