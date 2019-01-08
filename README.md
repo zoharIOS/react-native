@@ -96,8 +96,9 @@ Create Components folder in src and copy some components from previous project t
 Create folders in src folder.
  **reducers** , **Routeer**, **actions** each one shell have index.js.
  
- reducers (index.js)
  ```
+  reducers (index.js)
+  
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthReducer';
 import EmployeeFormReducer from './EmployeeFormReducer';
@@ -108,5 +109,44 @@ export default combineReducers({
     employeeForm: EmployeeFormReducer,
     employees: EmployeesReducer
 });
+
+ ```
+ ```
+    AuthReducer.js
+ 
+ import { 
+    EMAIL_CHANGED, 
+    PASSWORD_CHANGED, 
+    LOGING_USER_SUCESS,
+    LOGING_USER_FAIL, 
+    LOGING_USER
+} from '../actions/types';
+
+const INITIAL_STATE = 
+{ 
+    email: '',
+    password: '',
+    user: null,
+    error: '',
+    loading: false
+ };
+
+export default (state = INITIAL_STATE, action) => {
+    console.log('AuthReducer: action=%o', action);
+    switch (action.type) {
+        case EMAIL_CHANGED:
+            return { ...state, email: action.payload };
+        case PASSWORD_CHANGED:
+            return { ...state, password: action.payload };
+        case LOGING_USER:
+            return { ...state, loading: true, error: '' };   
+        case LOGING_USER_SUCESS:
+            return { ...state, ...INITIAL_STATE, user: action.payload };
+        case LOGING_USER_FAIL:
+            return { ...state, error: 'Authentication Failed', loading: false };
+        default:
+            return state;
+    }
+};
 
  ```
