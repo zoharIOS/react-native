@@ -63,7 +63,7 @@ open android studio, open project directory, open AVD and start the emulator and
 **Basic Application with Navigation**
 
 ```
-> npm install --save-dev rudux react-redux redux-thunk
+> npm install --save-dev redux react-redux redux-thunk
 ```
 
 :+1: App.js :+1:
