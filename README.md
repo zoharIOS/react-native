@@ -263,4 +263,9 @@ const RouterComponent = () =>
 export default RouterComponent;
 
 ```
+**Screen Width**
+```
+import { Dimensions } from 'react-native';
+const SCREEN_WIDTH = Dimensions.get('window').width;
+```
 
