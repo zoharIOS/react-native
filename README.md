@@ -268,4 +268,22 @@ export default RouterComponent;
 import { Dimensions } from 'react-native';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 ```
+***Animation:***
 
+**LayoutAnimation**
+```
+import { 
+    LayoutAnimation,
+    UIManager
+ } from 'react-native';
+```
+
+(included compatability for android)
+if the function exist, call it with argument
+```
+componentWillUpdate() {
+        UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+        LayoutAnimation.spring();
+    }
+```
+(progect swipe)
